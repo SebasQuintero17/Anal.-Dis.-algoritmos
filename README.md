@@ -1,2 +1,7 @@
 # Anal.-Dis.-algoritmos
-Chupeme esta
+#Integrantes
+- Fernando Aristizabal
+- Sebastian Quintero
+- Juan Sebastian Montoya
+- Santiago Tuberquia
+
