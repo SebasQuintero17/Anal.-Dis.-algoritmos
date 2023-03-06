@@ -50,7 +50,7 @@ def variacion_ordenada(n, k):
       for i in range(m, m-n, -1):
           resultado *= i
       return resultado
-  print("Las variaciones en este caso serian ",formula(5,3))
+  print("Las variaciones en este caso serian ",formula(n,k))
   
 
 variacion_ordenada(5,3)
