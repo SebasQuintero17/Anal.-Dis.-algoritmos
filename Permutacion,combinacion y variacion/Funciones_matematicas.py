@@ -32,7 +32,6 @@ n = 3
 lst = [1,2,3]
 permutations = Permutacion_con_Repeticion(n, lst)
 for p in permutations:
-
     print(p)
 print("El numero de combinaciones posibles en este caso son", len(permutations))
 
@@ -54,9 +53,10 @@ def variation_with_repetition(m, n):
     backtrack()
     def formula(m,n):
         return m**n
-    print("Las variaciones que pueden salir de aqui son", formula(5,3))
+    print("Las variaciones que pueden salir de aqui son", formula(m,n))
 
-variation_with_repetition(5,3)
+
+
 
 #VARIACION SIN REPETICION
 
@@ -80,13 +80,12 @@ def variacion_ordenada(n, k):
         for i in range(m, m-n, -1):
             resultado *= i
         return resultado
-    print("Las variaciones en este caso serian ",formula(5,3))
+    print("Las variaciones en este caso serian ",formula(n,k))
 
 
-variacion_ordenada(5,3)
 
 #Combinacion Ordinaria 
-def combinations(n, k):
+def combinatoria_ordinaria(n, k):
     if k > n:
         return
     comb = []
@@ -103,3 +102,20 @@ def combinations(n, k):
         count += 1
         print(count, c)
     print("Numero de combinaciones ", count) 
+
+#Convinatoria con Repetición
+
+def combinatoria_con_repeticion(n, k):
+    def backtrack(primer=1, combinatoria=[]):
+        if len(combinatoria) == k:
+            backtrack.resultado.append(combinatoria.copy())
+            return
+        for i in range(primer, n+1):
+            combinatoria.append(i)
+            backtrack(i, combinatoria)
+            combinatoria.pop()
+    backtrack.resultado = []
+    backtrack()
+    for i, combinatoria in enumerate(backtrack.resultado):
+        print(i+1, combinatoria)
+    print("Las posibles combinaciones serian", len(backtrack.resultado))

@@ -1,4 +1,5 @@
 import sys
+import Funciones_matematicas 
 
 print("""
 ██████╗░██╗███████╗███╗░░██╗██╗░░░██╗███████╗███╗░░██╗██╗██████╗░░█████╗░
@@ -14,7 +15,7 @@ print("""
 def menu():
         
     while True:
-        opcion_menu= int(input("╔═══════════════════════════════╗ \n"+
+        opcion_menu= int(input("╔══════════════════════════════════╗ \n"+
                             "║ 𝔐𝔢𝔫𝔲́                             ║ \n"+ 
                             "║                                  ║ \n"+
                             "║       Elije una opción           ║ \n"+
@@ -37,7 +38,7 @@ def menu():
 
 def sub_menu1():
     while True:
-        opcion_sub_menu1 =  int(input("╔═══════════════════════════════════════╗ \n"+
+        opcion_sub_menu1 =  int(input("╔══════════════════════════════════════════╗ \n"+
                             "║ 𝔐𝔢𝔫𝔲́                                     ║ \n"+ 
                             "║                                          ║ \n"+
                             "║         Elije una opción                 ║ \n"+
@@ -50,7 +51,7 @@ def sub_menu1():
         
         if opcion_sub_menu1 == 1:
             while True:
-                opcion_sub_menu1_1 =  int(input("╔═══════════════════════════════════════╗ \n"+
+                opcion_sub_menu1_1 =  int(input("╔═════════════════════════════════════════════╗ \n"+
                                     "║ 𝔐𝔢𝔫𝔲́                                     ║ \n"+ 
                                     "║                                          ║ \n"+
                                     "║         Elije una opción                 ║ \n"+
@@ -63,10 +64,37 @@ def sub_menu1():
                 
                 if opcion_sub_menu1_1 == 1:
                     print("Uste esta haciendo una Permutacion con Repeticion ")
+
+                    numero_de_elementos = int(input("Ingrese número  de elementos a permutar: "))
+
+                    lista_elementos = []
+                    elemntos_agrupar = int(input("numero de elementos a agrupar: "))
+                    for x in range(elemntos_agrupar ):
+                        elemnto = int(input("Ingrese elemento a añadir: "))
+                        lista_elementos.append(elemnto)
+
+                    Funciones_matematicas.Permutacion_con_Repeticion(numero_de_elementos,lista_elementos)
+                    permutations = Funciones_matematicas.Permutacion_con_Repeticion(numero_de_elementos,lista_elementos)
+                    for p in permutations:
+                        print(p)
+                    print("El numero de combinaciones posibles en este caso son", len(permutations))
                     return menu()
+                
                 elif opcion_sub_menu1_1 == 2:
                     print("Usted esta haciendo una Permutacion Ordinaria")
+
+                    lista_elementos = []
+                    elemntos_agrupar = int(input("numero de elementos a agrupar: "))
+                    for x in range(elemntos_agrupar ):
+                        elemnto = int(input("Ingrese elemento a añadir: "))
+                        lista_elementos.append(elemnto)
+                    Funciones_matematicas.Permutacion(lista_elementos)
+                    permutaciones = Funciones_matematicas.Permutacion(lista_elementos)
+                    for p in permutaciones:
+                        print(p)
+                    print("El número de posibles permutaciones para este grupo seria: ",len(permutaciones))
                     return menu()
+
                 elif opcion_sub_menu1_1 == 3:
                     print("Regresando al menú anterior....")
                     return
@@ -78,7 +106,7 @@ def sub_menu1():
 
         elif opcion_sub_menu1 ==2:
             while True:
-                opcion_sub_menu1_1 =  int(input("╔═══════════════════════════════════════╗ \n"+
+                opcion_sub_menu1_1 =  int(input("╔══════════════════════════════════════════╗ \n"+
                                     "║ 𝔐𝔢𝔫𝔲́                                     ║ \n"+ 
                                     "║                                          ║ \n"+
                                     "║         Elije una opción                 ║ \n"+
@@ -90,11 +118,19 @@ def sub_menu1():
                                     "╚══════════════════════════════════════════╝ \n" ))
                 
                 if opcion_sub_menu1_1 == 1:
-                    print("Uste esta haciendo una Permutacion con Repeticion ")
+                    print("Uste esta haciendo una Variacion con Repeticion ")
+                    numero_de_elementos= int(input("Ingrese número de elementos: "))
+                    numero_elemntos_agrupar = int(input("Ingrese número de elemntos a agrupar:  "))
+                    Funciones_matematicas.variation_with_repetition(numero_de_elementos,numero_elemntos_agrupar)
                     return menu()
+                
                 elif opcion_sub_menu1_1 == 2:
-                    print("Usted esta haciendo una Permutacion Ordinaria")
+                    print("Usted esta haciendo una Variacion Ordinaria")
+                    numero_de_elementos= int(input("Ingrese número de elementos: "))
+                    numero_elemntos_agrupar = int(input("Ingrese número de elemntos a agrupar:  "))
+                    Funciones_matematicas.variacion_ordenada(numero_de_elementos,numero_elemntos_agrupar)
                     return menu()
+                
                 elif opcion_sub_menu1_1 == 3:
                     print("Regresando al menú anterior....")
                     return
@@ -104,8 +140,6 @@ def sub_menu1():
                 else:
                     print("Opcion no valida")
             
-        
-
         elif opcion_sub_menu1 == 3:
             print("Regresando al menú anterior....")
             return
@@ -120,7 +154,7 @@ def sub_menu1():
 
 def sub_menu2():
     while True:
-        opcion_sub_menu2 =  int(input("╔══════════════════════════════════════════╗ \n"+
+        opcion_sub_menu2 =  int(input("╔═════════════════════════════════════════════╗ \n"+
                             "║ 𝔐𝔢𝔫𝔲́                                     ║ \n"+ 
                             "║                                          ║ \n"+
                             "║         Elije una opción                 ║ \n"+
@@ -133,10 +167,18 @@ def sub_menu2():
         
         if opcion_sub_menu2 == 1:
             print("Uste esta haciendo una Combinacion con Repeticion ")
+            numero_de_elementos= int(input("Ingrese número de elementos: "))
+            numero_elemntos_agrupar = int(input("Ingrese número de elemntos a agrupar:  "))
+            Funciones_matematicas.combinatoria_con_repeticion(numero_de_elementos,numero_elemntos_agrupar)
             return menu()
+        
         elif opcion_sub_menu2 == 2:
             print("Usted esta haciendo una Combinacion Ordinaria")
+            numero_de_elementos= int(input("Ingrese número de elementos: "))
+            numero_elemntos_agrupar = int(input("Ingrese número de elemntos a agrupar:  "))
+            Funciones_matematicas.combinatoria_ordinaria(numero_de_elementos,numero_elemntos_agrupar)
             return menu()
+        
         elif opcion_sub_menu2 == 3:
             print("Regresando al menú anterior....")
             return
